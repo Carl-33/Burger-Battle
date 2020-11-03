@@ -1,0 +1,30 @@
+// Make sure we wait for the DOM to be fully loaded before attaching handlers
+$(function(){
+// on click event listener for 'favorite' button
+// that has a ajax put request
+// that adds one to the restaraunt's overall score
+// Then reloads the page
+// locations.reaload();
+
+// event listener for submiting  a new restaraunt
+// ajax call to add the restaurant info to the database
+// // .then(
+//     function() {
+//         console.log("created new burger place");
+//         // Reload the page to get the updated list
+//         location.reload();
+//       }
+
+
+// event listener for adding a comment to a burger place
+// ajax put request that adds a comment to the comments table
+// // .then(
+//     function() {
+//         console.log("added a comment");
+//         // Reload the page to get the updated list
+//         location.reload();
+//       }
+
+
+
+})
