@@ -1,15 +1,15 @@
 $(document).ready(function() {
     /* global moment */
   
-    // blogContainer holds all of our posts
-    var blogContainer = $(".blog-container");
+    // restaurantContainer holds all of our posts
+    var restaurantContainer = $(".restaurant-container");
     var postCategorySelect = $("#category");
-    // Click events for the edit and delete buttons
+    // Click events for the vote and delete buttons
     $(document).on("click", "button.plus", handlePostEdit);
     // Variable to hold our posts
     var posts;
   
-    // The code below handles the case where we want to get blog posts for a specific author
+    // The code below handles the case where we want to get comments for a specific restaurant
     // Looks for a query param in the url for author_id
     var url = window.location.search;
     var restarauntId;
@@ -49,19 +49,19 @@ $(document).ready(function() {
       for (var i = 0; i < restaurants.length; i++) {
         restaurantsToAdd.push(createNewRow(restaurants[i]));
       }
-      blogContainer.append(restaurantsToAdd);
+      restaurantContainer.append(restaurantsToAdd);
     }
   
     // This function constructs a post's HTML
     function createNewRow(restaraunt) {
-      var newPostCard = $("<div>");
-      newPostCard.addClass("card");
-      var newPostCardHeading = $("<div>");
-      newPostCardHeading.addClass("card-header");
+      var newRestarauntCard = $("<div>");
+      newRestarauntCard.addClass("card");
+      var newRestaurantCardHeading = $("<div>");
+      newRestaurantCardHeading.addClass("card-header");
       var voteBtn = $("<button>");
       voteBtn.text("Vote for this");
       voteBtn.addClass("vote btn btn-info");
-      var newPostTitle = $("<h2>");
+      var newRestaurantName = $("<h2>");
       var newPostDate = $("<small>");
       var newPostAuthor = $("<h5>");
       newPostAuthor.text("Written by: " + post.Author.name);
@@ -71,32 +71,25 @@ $(document).ready(function() {
         "margin-top":
         "-10px"
       });
-      var newPostCardBody = $("<div>");
-      newPostCardBody.addClass("card-body");
+      var newRestaurantCardBody = $("<div>");
+      newRestaurantCardBody.addClass("card-body");
       var newPostBody = $("<p>");
-      newPostTitle.text(post.title + " ");
+      newRestaurantName.text(post.title + " ");
       newPostBody.text(post.body);
       newPostDate.text(formattedDate);
       newPostTitle.append(newPostDate);
-      newPostCardHeading.append(deleteBtn);
-      newPostCardHeading.append(editBtn);
-      newPostCardHeading.append(newPostTitle);
-      newPostCardHeading.append(newPostAuthor);
-      newPostCardBody.append(newPostBody);
-      newPostCard.append(newPostCardHeading);
-      newPostCard.append(newPostCardBody);
-      newPostCard.data("post", post);
-      return newPostCard;
+      newRestaurantCardHeading.append(deleteBtn);
+      newRestaurantCardHeading.append(voteBtn);
+      newRestaurantCardHeading.append(newPostTitle);
+      newRestaurantCardHeading.append(newPostAuthor);
+      newRestaurantCardBody.append(newPostBody);
+      newRestarauntCard.append(newRestaurantCardHeading);
+      newRestarauntCard.append(newRestaurantCardBody);
+      newRestarauntCard.data("post", post);
+      return newRestarauntCard;
     }
   
-    // This function figures out which post we want to delete and then calls deletePost
-    function handlePostDelete() {
-      var currentPost = $(this)
-        .parent()
-        .parent()
-        .data("post");
-      deletePost(currentPost.id);
-    }
+ 
   
     // This function figures out which post we want to edit and takes it to the appropriate url
     function handlePostEdit() {
@@ -112,14 +105,14 @@ $(document).ready(function() {
       var query = window.location.search;
       var partial = "";
       if (id) {
-        partial = " for Author #" + id;
+        partial = " for Restaurant #" + id;
       }
-      blogContainer.empty();
+      restaurantContainer.empty();
       var messageH2 = $("<h2>");
       messageH2.css({ "text-align": "center", "margin-top": "50px" });
       messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
       "'>here</a> in order to get started.");
-      blogContainer.append(messageH2);
+      restaurantContainer.append(messageH2);
     }
   
   });
