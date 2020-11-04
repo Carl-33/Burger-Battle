@@ -14,6 +14,13 @@ $(function(){
 //         // Reload the page to get the updated list
 //         location.reload();
 //       }
+$(".create-form").on("submit", function(event){
+    event.preventDefault();
+    let newBurgerJoint = {
+        name: $("#burg").val().trim()
+    };
+    console.log("Party Time at " + newBurgerJoint.name)
+});
 
 
 // event listener for adding a comment to a burger place
@@ -25,6 +32,4 @@ $(function(){
 //         location.reload();
 //       }
 
-
-
-})
+});
