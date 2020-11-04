@@ -9,7 +9,7 @@ var express = require("express");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8081;
 
 // Requiring our models for syncing
 // var db = require("./models");
@@ -25,17 +25,6 @@ app.use(express.json());
 // Routes
 // =============================================================
 var routes = require("./controllers/burgerController.js");
-
-var x = y;
-
-y = 2;
-
-
-if (x === null) {
-  console.log("yaya");
-} else {
-  console.log('nono');
-}
 
 app.use(routes);
 // require("./routes/html-routes.js")(app);

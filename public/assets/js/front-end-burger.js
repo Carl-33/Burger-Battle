@@ -85,7 +85,7 @@ $(document).ready(function() {
       newRestaurantCardBody.append(newPostBody);
       newRestarauntCard.append(newRestaurantCardHeading);
       newRestarauntCard.append(newRestaurantCardBody);
-      newRestarauntCard.data("post", post);
+      newRestarauntCard.data("restaurant", restaurant);
       return newRestarauntCard;
     }
   
