@@ -19,6 +19,16 @@ $(".create-form").on("submit", function(event){
     let newBurgerJoint = {
         name: $("#burg").val().trim()
     };
+    // send POST request.
+    // $.ajax("api/burgers", {
+    //     type: "POST",
+    //     data: newBurgerJoint
+    // }).then(
+    //     function(){
+    //         console.log("Party Time at " + newBurgerJoint.name)            
+    //         location.reload();
+    //     }
+    // );
     console.log("Party Time at " + newBurgerJoint.name)
 });
 

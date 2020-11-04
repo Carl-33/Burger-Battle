@@ -32,6 +32,17 @@ app.set("view engine", "handlebars");
 // =============================================================
 var routes = require("./controllers/burgerController.js");
 
+var x = y;
+
+y = 2;
+
+
+if (x === null) {
+  console.log("yaya");
+} else {
+  console.log('nono');
+}
+
 app.use(routes);
 // require("./routes/html-routes.js")(app);
 // require("./routes/author-api-routes.js")(app);
