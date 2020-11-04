@@ -25,16 +25,19 @@ module.exports = function(app) {
       Restuarant: req.body.Name,
       Burger: 0,
       Comment: req.body.comment,
-      Fries: 0,
-      Beer: 0
+      // Fries: 0,
+      // Beer: 0
     }).then(function(results) {
       res.json(results);
     });
   });
 
 //   app.update("/api/update", function(req, res){
-//  Restaurants.find
-
+//  const Restaurantid = await User.create({ name: "Restuarant", age: 100, cash: 5000 });
+//  await Restaurantid.increment({
+//    'Burger': 1,
+// //    'cash': 1
+// //  });
 
 // });
 
