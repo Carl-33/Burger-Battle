@@ -24,6 +24,7 @@ module.exports = function(app) {
     Restaurants.create({
       Restuarant: req.body.Name,
       Burger: 0,
+      Comment: req.body.comment,
       Fries: 0,
       Beer: 0
     }).then(function(results) {

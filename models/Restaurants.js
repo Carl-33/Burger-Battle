@@ -10,6 +10,7 @@ var sequelize = require("../config/connection.js");
 var Restaurant = sequelize.define("Restaurant", {
   Name: Sequelize.STRING,
   Burger: Sequelize.INTEGER,
+  Comment: Sequelize.STRING,
   Fries: Sequelize.INTEGER,
   Beer: Sequelize.INTEGER
 });
