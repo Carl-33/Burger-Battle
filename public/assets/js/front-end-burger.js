@@ -32,8 +32,8 @@ $(".create-form").on("submit", function(event){
     console.log("Party Time at " + newBurgerJoint.name)
 });
 
-
 // event listener for adding a comment to a burger place
+$("#add-comment").on ("submit")
 // ajax put request that adds a comment to the comments table
 // // .then(
 //     function() {
