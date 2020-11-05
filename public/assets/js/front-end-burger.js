@@ -6,6 +6,9 @@ $(document).ready(function() {
     var postCategorySelect = $("#category");
     // Click events for the vote and delete buttons
     $(document).on("click", "button.plus", handlePostEdit);
+    // Click event for adding a burger Joint
+    $(document).on("keyup", "#newRestaurant", createRestaurant);
+    $(document).on("click", "#addRestaurant", createRestaurant);
     // Variable to hold our posts
     var posts;
   
@@ -113,5 +116,9 @@ $(document).ready(function() {
       restaurantContainer.append(messageH2);
     }
   
+
+    function createRestaurant () {
+
+    }
   });
   
