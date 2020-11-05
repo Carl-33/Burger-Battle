@@ -6,21 +6,21 @@ $(document).ready(function() {
     var postCategorySelect = $("#category");
     // Click events for the vote and delete buttons
     $(document).on("click", "button.plus", handlePostEdit);
-    // Click event for adding a burger Joint
-    $(document).on("keyup", "#newRestaurant", createRestaurant);
-    $(document).on("click", "#addRestaurant", createRestaurant);
+        // Click event for adding a burger Joint
+        $(document).on("keyup", "#newRestaurant", createRestaurant);
+        $(document).on("click", "#addRestaurant", createRestaurant);    
     // Variable to hold our posts
     var posts;
   
     // The code below handles the case where we want to get comments for a specific restaurant
-    // Looks for a query param in the url for author_id
+    // Looks for a query param in the url for restaurant_id
     var url = window.location.search;
     var restarauntId;
     if (url.indexOf("?restaurant_id=") !== -1) {
       restarauntId = url.split("=")[1];
-      getPosts(authorId);
+      getPosts(restarauntId);
     }
-    // If there's no authorId we just get all posts as usual
+    // If there's no restarauntId we just get all posts as usual
     else {
       getPosts();
     }
@@ -65,15 +65,15 @@ $(document).ready(function() {
       voteBtn.text("Add to the Score!");
       voteBtn.addClass("vote btn btn-outline-danger");
       var newRestaurantName = $("<h2>");
-      var newPostDate = $("<small>");
-      var newPostAuthor = $("<h5>");
-      newPostAuthor.text("Written by: " + restaraunt.name);
-      newPostAuthor.css({
-        float: "right",
-        color: "blue",
-        "margin-top":
-        "-10px"
-      });
+      // var newPostDate = $("<small>");
+      // var newPostAuthor = $("<h5>");
+      // newPostAuthor.text("Written by: " + restaraunt.name);
+      // newPostAuthor.css({
+      //   float: "right",
+      //   color: "blue",
+      //   "margin-top":
+      //   "-10px"
+      // });
       var newRestaurantCardBody = $("<div>");
       newRestaurantCardBody.addClass("card-body");
       var newPostBody = $("<p>");
@@ -115,8 +115,8 @@ $(document).ready(function() {
       "'>here</a> in order to get started.");
       restaurantContainer.append(messageH2);
     }
-  
 
+    
     function createRestaurant () {
 
     }
