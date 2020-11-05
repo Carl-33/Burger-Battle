@@ -74,20 +74,21 @@ $(document).ready(function () {
     restaurantContainer.empty();
     var restaurantsToAdd = [];
     for (var i = 0; i < restaurants.length; i++) {
-      restaurantsToAdd.push(createNewRow(restaurants[i], i));
+      restaurantsToAdd.push(createNewRow(restaurants[i]));
     }
     restaurantContainer.append(restaurantsToAdd);
   }
 
   // This function constructs a post's HTML
-  function createNewRow(restaurant, i) {
+  function createNewRow(restaurant) {
+    console.log(restaurant);
     var newRestarauntCard = $("<div>");
     newRestarauntCard.addClass("card");
     var newRestaurantCardHeading = $("<div>");
     newRestaurantCardHeading.addClass("card-header");
     var voteBtn = $("<button>");
     voteBtn.text("Add to the Score!");
-    voteBtn.attr('id', i)
+    voteBtn.attr('id', restaurant.id)
     voteBtn.addClass(`vote btn btn-outline-danger`);
     var commentsLink = $("<p>");
     commentsLink.text("Comments!");
@@ -95,7 +96,7 @@ $(document).ready(function () {
     var score = $("<p>");
     score.text(restaurant.Score + " ");
     score.addClass(`score`);
-    score.attr('id', `score-${i}`)
+    score.attr('id', `score-${restaurant.id}`)
     score.data("score", restaurant.Score);
     var newRestaurantName = $("<h2>");
     // var newPostDate = $("<small>");
@@ -168,13 +169,13 @@ $(document).ready(function () {
     var id = $(this).attr("id");
     var vote = parseInt($(`#score-${id}`).text());
     console.log(typeof vote, `vote equals ${vote}`)
-      updateRestaurant(vote)
+      updateRestaurant(vote, id)
   }
 
-  function updateRestaurant(vote) {
+  function updateRestaurant(vote, id) {
     $.ajax({
       method: "PUT",
-      url: "/api/restaurant",
+      url: "/api/restaurant/" + id,
       data: vote
     }).then(getRestaurants);
   }
