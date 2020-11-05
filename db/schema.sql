@@ -1,1 +1,1 @@
-Create database Restaurants;
+Create database Restaurant_list;
