@@ -9,8 +9,8 @@ var sequelize = require("../config/connection.js");
 // Creates a "Restaurant" model that matches up with DB
 var Restaurant = sequelize.define("Restaurant", {
   Name: Sequelize.STRING,
-  Burger: Sequelize.INTEGER,
-  score: Sequelize.INTEGER
+  // Burger: Sequelize.INTEGER,
+  Score: Sequelize.INTEGER
   // Comment: Sequelize.STRING,
   // Fries: Sequelize.INTEGER,
   // Beer: Sequelize.INTEGER
