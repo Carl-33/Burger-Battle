@@ -48,9 +48,9 @@ module.exports = function(app) {
     })
   });
 
-  app.put("/api/restaurant/:name", function(req, res) {
-    const name = req.params.name;
-    Restaurants.update({ Score: Sequelize.literal('Score + 1') }, { where: { Name: name } })
+  app.put("/api/restaurant/:id", function(req, res) {
+    const id = req.params.id;
+    Restaurants.update({ Score: Sequelize.literal('Score + 1') }, { where: { id: id } })
       .then(function() {
         res.sendStatus(200);
       }).catch(function() {
