@@ -24,6 +24,7 @@ app.use(express.json());
 
 // Routes
 // =============================================================
+// What does this do?
 let routes = require("./controllers/burgerController.js");
 
 app.use(routes);
