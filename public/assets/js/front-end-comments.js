@@ -7,7 +7,7 @@ $(document).ready(function () {
         restaurantId = url.split("=")[1];
         getComments(restaurantId);
     }
-    // If there's no authorId we just get all posts as usual
+    // If there's no restarauntId we just get all posts as usual
     else {
         getComments();
     }
