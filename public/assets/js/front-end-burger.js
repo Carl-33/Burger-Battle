@@ -59,12 +59,12 @@ $(document).ready(function() {
       var newRestaurantCardHeading = $("<div>");
       newRestaurantCardHeading.addClass("card-header");
       var voteBtn = $("<button>");
-      voteBtn.text("Vote for this");
-      voteBtn.addClass("vote btn btn-info");
+      voteBtn.text("Add to the Score!");
+      voteBtn.addClass("vote btn btn-outline-danger");
       var newRestaurantName = $("<h2>");
       var newPostDate = $("<small>");
       var newPostAuthor = $("<h5>");
-      newPostAuthor.text("Written by: " + post.Author.name);
+      newPostAuthor.text("Written by: " + restaraunt.name);
       newPostAuthor.css({
         float: "right",
         color: "blue",
@@ -88,15 +88,13 @@ $(document).ready(function() {
       newRestarauntCard.data("restaurant", restaurant);
       return newRestarauntCard;
     }
-  
- 
-  
+
     // This function figures out which post we want to edit and takes it to the appropriate url
     function handlePostEdit() {
       var currentPost = $(this)
         .parent()
         .parent()
-        .data("post");
+        .data("restaurant");
       window.location.href = "/cms?post_id=" + currentPost.id;
     }
   
