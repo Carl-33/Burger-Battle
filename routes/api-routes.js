@@ -8,28 +8,54 @@
 // var db = require("../models");
 // const Restaurant = require("../models/Restaurants.js");
 var Restaurants = require("../models/Restaurants.js");
+var Sequelize = require("sequelize");
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  app.get("/api/all", function(req, res) {
+  app.get("/api/restaurant", function(req, res) {
     Restaurants.findAll({}).then(function(results) {
       res.json(results);
     });
   });
 
-  app.post("/api/new", function(req, res) {
+  app.get("/api/restaurant/:name", function(req, res) {
+    const Name = req.params.name;
+    Restaurants.findOne({
+      where: {
+        Name
+      }
+    }).then(result => {
+      res.json(result);
+    }).catch(() => {
+      res.sendStatus(404);
+    })
+  })
+
+  app.post("/api/restaurant", function(req, res) {
     console.log("Restuarants Data:");
     console.log(req.body);
     Restaurants.create({
-      Restuarant: req.body.Name,
-      Burger: 0,
-      Comment: req.body.comment,
+      Name: req.body.Name,
+      Score: 0,
+      // Comment: req.body.comment,
       // Fries: 0,
       // Beer: 0
     }).then(function(results) {
       res.json(results);
-    });
+    }).catch(function() {
+      res.sendStatus(404);
+    })
+  });
+
+  app.put("/api/restaurant/:name", function(req, res) {
+    const name = req.params.name;
+    Restaurants.update({ Score: Sequelize.literal('Score + 1') }, { where: { Name: name } })
+      .then(function() {
+        res.sendStatus(200);
+      }).catch(function() {
+        res.sendStatus(400);
+      });
   });
 
 //   app.update("/api/update", function(req, res){
