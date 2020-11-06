@@ -18,3 +18,7 @@
     float: right;
     background-color: rgb(167, 167, 167);
 }
+
+#restaurant-input {
+height: 50px;
+}
