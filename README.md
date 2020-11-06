@@ -1,4 +1,4 @@
-# Combusken_Crew
+# Burger Battle
 The Burger Battle app let's you add your favorite burger place to the battle, and you can see how people think it ranks against the competition.
 
 
