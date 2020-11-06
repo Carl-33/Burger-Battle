@@ -16,6 +16,7 @@ $(document).ready(function () {
         restaurantId = restaurant || "";
         if (restaurantId) {
             restaurantId = "/?author_id=" + restaurantId;
+            console.log("yo " + restaurantId);
         }
         $.get("/api/comments" + restaurantId, function (data) {
             console.log("Comments", data);
