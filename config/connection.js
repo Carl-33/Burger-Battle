@@ -2,8 +2,8 @@
 var Sequelize = require("sequelize");
 // var mysql = require("mysql");
 
-if (process.env.CLEARDB_DATABASE_URL){
-  var sequelize = new Sequelize.createConnection(process.env.CLEARDB_DATABASE_URL)
+if (process.env.CLEARDB_DATABASE_URL){  
+  var sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL)
 } else {
   var sequelize = new Sequelize("Restaurant_list", "root", "root", {
     host: "localhost",
