@@ -95,7 +95,7 @@ $(document).ready(function () {
     commentsLink.addClass("comments");
     commentsLink.attr('id', `${restaurant.id}`)
     var score = $("<p>");
-    score.text(restaurant.Score + " ");
+    score.text("Score: " + restaurant.Score + " ");
     score.addClass(`score`);
     score.attr('id', `score-${restaurant.id}`)
     score.data("score", restaurant.Score);
