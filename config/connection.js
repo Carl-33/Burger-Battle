@@ -5,7 +5,7 @@ var Sequelize = require("sequelize");
 if (process.env.CLEARDB_DATABASE_URL){
   var sequelize = new Sequelize.createConnection(process.env.CLEARDB_DATABASE_URL)
 } else {
-  var sequelize = new Sequelize("Restaurant_list", "root", "root", {
+  var sequelize = new Sequelize("Restaurant_list", "root", "rootroot!", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
