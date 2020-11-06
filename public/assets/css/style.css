@@ -1,0 +1,20 @@
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('http://adwallpapers.xyz/uploads/posts/34817-blurred-of-restaurant-with-bokeh-lights-background-and-wood-table.jpg');
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.card {
+    opacity: 75%;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.comments {
+    float: right;
+    background-color: rgb(167, 167, 167);
+}
