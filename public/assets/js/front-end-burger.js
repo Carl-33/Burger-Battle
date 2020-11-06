@@ -90,7 +90,7 @@ $(document).ready(function () {
     voteBtn.text("Add to the Score!");
     voteBtn.attr('id', restaurant.id)
     voteBtn.addClass(`vote btn btn-outline-danger`);
-    var commentsLink = $("<button>");
+    var commentsLink = $("<button href=/comments>");
     commentsLink.text("Comments!");
     commentsLink.addClass("comments");
     commentsLink.attr('id', `${restaurant.id}`)
@@ -132,7 +132,7 @@ $(document).ready(function () {
   function handleCommentEdit() {
     var id = $(this).attr("id");
     console.log(typeof id, `id equals ${id}`);
-    window.location.href = "/comments?restaurant_id=" + id;
+    window.location.href = "/comments.html";
   }
 
   // This function displays a message when there are no restaurants
