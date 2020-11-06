@@ -7,7 +7,7 @@ $(document).ready(function () {
   // Click event for the vote buttons
   $(document).on("click", ".vote", upVote);
   // Click event for going to comments page
-  // $(document).on("click", ".comments", handleCommentEdit);
+  $(document).on("click", ".comments", handleCommentEdit);
   // Click events for adding a burger Joint
   $(document).on("submit", "#newRestaurant", createRestaurant);
   $(document).on("click", "#addRestaurant", createRestaurant);
@@ -81,7 +81,7 @@ $(document).ready(function () {
 
   // This function constructs a post's HTML
   function createNewRow(restaurant) {
-    console.log(restaurant);
+    // console.log(restaurant);
     var newRestarauntCard = $("<div>");
     newRestarauntCard.addClass("card");
     var newRestaurantCardHeading = $("<div>");
@@ -90,9 +90,10 @@ $(document).ready(function () {
     voteBtn.text("Add to the Score!");
     voteBtn.attr('id', restaurant.id)
     voteBtn.addClass(`vote btn btn-outline-danger`);
-    var commentsLink = $("<p>");
+    var commentsLink = $("<button>");
     commentsLink.text("Comments!");
-    commentsLink.addClass("comments")
+    commentsLink.addClass("comments");
+    commentsLink.attr('id', `${restaurant.id}`)
     var score = $("<p>");
     score.text(restaurant.Score + " ");
     score.addClass(`score`);
@@ -127,14 +128,12 @@ $(document).ready(function () {
     return newRestarauntCard;
   }
 
-  // This function figures out which post we want to edit and takes it to the appropriate url
-  // function handleCommentEdit() {
-  //   var currentComment = $(this)
-  //     .parent()
-  //     .parent()
-  //     .data("restaurant");
-  //   window.location.href = "/comments/?restaurant_id=" + currentComment.id;
-  // }
+  // This function figures out which restaraunt comments we want to edit and takes it to the appropriate url
+  function handleCommentEdit() {
+    var id = $(this).attr("id");
+    console.log(typeof id, `id equals ${id}`);
+    window.location.href = "/comments?restaurant_id=" + id;
+  }
 
   // This function displays a message when there are no restaurants
   // function displayEmpty(id) {
@@ -169,6 +168,7 @@ $(document).ready(function () {
     var id = $(this).attr("id");
     var vote = parseInt($(`#score-${id}`).text());
     console.log(typeof vote, `vote equals ${vote}`)
+    console.log(typeof id, `id equals ${id}`)
       updateRestaurant(vote, id)
   }
 
