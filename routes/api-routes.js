@@ -8,13 +8,15 @@
 // var db = require("../models");
 // const Restaurant = require("../models/Restaurants.js");
 var Restaurants = require("../models/Restaurants.js");
+var Comments = require("../models/Comment.js")
 var Sequelize = require("sequelize");
+const sequelize = require("../config/connection.js");
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   app.get("/api/restaurant", function(req, res) {
-    Restaurants.findAll({}).then(function(results) {
+    Restaurants.findAll({order: sequelize.literal('score DESC')}).then(function(results) {
       res.json(results);
     });
   });
@@ -56,6 +58,12 @@ module.exports = function(app) {
       }).catch(function() {
         res.sendStatus(400);
       });
+  });
+
+  app.get("/api/comments/:id", function(req, res) {
+    Comments.findAll({}).then(function(results) {
+      res.json(results);
+    });
   });
 
 //   app.update("/api/update", function(req, res){
