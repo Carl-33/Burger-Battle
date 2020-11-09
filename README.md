@@ -1,4 +1,4 @@
-# Combusken_Crew
+# Burger-Battle
 The Burger Battle app let's you add your favorite burger place to the battle, and you can see how people think it ranks against the competition.
 
 
@@ -26,14 +26,14 @@ The Burger Battle app let's you add your favorite burger place to the battle, an
 
 
    ## Installation 
-   Download the applicationi files, make sure you run 
+   Download the application files, make sure you run 
    ```
    npm i sequelize mysql express
    ```
    prior to launch.  You can then run the application on your localhost, and the schema.sql will create your database for you.
 
    ## Link
-   Link to deployed Heroku application is coming soon.
+   Click here to join the battle: https://combusken-crew.herokuapp.com/
 
    ## Usage 
    Start by adding your favorite burger joint in the input field at the bottom of the page. 
